@@ -1,0 +1,38 @@
+<head>
+  <title>pixel-sharr</title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Latest pics</h1>
+      {{> loginButtons}}
+			{{#if currentUser}}
+      <form class="new-pic">
+        <input class="image" type="text" name="text" placeholder="Type to add new pictures" />
+        <input class="content" type="text" name="text" placeholder="Type to add description" />
+      </form>
+      <br>
+      <button id="submit">Submit</button>
+      {{/if}}
+    </header>
+ 
+    <ul>
+      {{#each pics}}
+        {{> pic}}
+        
+      {{/each}}
+    </ul>
+  </div>
+</body>
+ 
+<template name="pic">
+	<li>
+		<button class="delete">&times;</button>
+		<img src="{{image}}">
+		<span><strong>{{username}}</strong>: {{content}}</span>
+
+		
+	</li>
+  
+</template>
