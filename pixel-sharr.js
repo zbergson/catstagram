@@ -6,10 +6,11 @@ if (Meteor.isClient) {
     pics: function () {
       return Pics.find({}, {sort: {createdAt: -1}});
     }
+   
   });
 
   Template.body.events({
-    "click #submit": function (event) {
+    "click #submit": function(event) {
       // Prevent default browser form submit
       event.preventDefault();
  
@@ -26,18 +27,36 @@ if (Meteor.isClient) {
       $('.content').val('');
       $('.image').val('');
     }
+
   });
 
-    Template.pic.events({
+
+
+
+
+  Template.pic.events({
     "click .delete": function () {
       Meteor.call("deletePic", this._id);
     }
   });
 
+
+
   Accounts.ui.config({
     passwordSignupFields: "USERNAME_ONLY"
   });
+
+  // Template.user.helpers({
+  //   user: function(){
+  //     var currentUserId = Meteor.userId();
+  //     return Pics.find({owner: currentUserId });
+  //   }
+  // })
 }
+
+
+
+
 
 Meteor.methods({
   addPic: function (image, content) {

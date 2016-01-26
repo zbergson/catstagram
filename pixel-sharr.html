@@ -8,6 +8,7 @@
       <h1>Latest pics</h1>
       {{> loginButtons}}
 			{{#if currentUser}}
+			<h2 class="userpage">profile</h2>
       <form class="new-pic">
         <input class="image" type="text" name="text" placeholder="Type to add new pictures" />
         <input class="content" type="text" name="text" placeholder="Type to add description" />
@@ -17,11 +18,22 @@
       {{/if}}
     </header>
  
-    <ul>
+    <ul id="homepage">
       {{#each pics}}
         {{> pic}}
         
       {{/each}}
+    </ul>
+    <ul id="profile">
+    	{{#if currentUser}}
+			
+
+					{{> user}}
+
+    	
+
+    	{{/if}}
+
     </ul>
   </div>
 </body>
@@ -30,9 +42,13 @@
 	<li>
 		<button class="delete">&times;</button>
 		<img src="{{image}}">
-		<span><strong>{{username}}</strong>: {{content}}</span>
-
-		
+		<span class="username"><strong>{{username}}</strong>: {{content}}</span>	
 	</li>
-  
+</template>
+
+<template name="user">
+	<h4>{{user}}</h4>
+	<li>
+		<img src="{{image}}">
+	</li>
 </template>
