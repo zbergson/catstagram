@@ -19,14 +19,8 @@ if (Meteor.isClient) {
       
       
  
-      // Insert a task into the collection
-      Pics.insert({
-        image: image,
-        content: content,
-        createdAt: new Date(), // current time
-        owner: Meteor.userId(),           // _id of logged in user
-        username: Meteor.user().username  // username of logged in user
-      });
+      // Insert an image into the collection
+      Meteor.call("addPic", image, content);
  
       // Clear form
       $('.content').val('');
@@ -36,7 +30,7 @@ if (Meteor.isClient) {
 
     Template.pic.events({
     "click .delete": function () {
-      Pics.remove(this._id);
+      Meteor.call("deletePic", this._id);
     }
   });
 
@@ -44,6 +38,26 @@ if (Meteor.isClient) {
     passwordSignupFields: "USERNAME_ONLY"
   });
 }
+
+Meteor.methods({
+  addPic: function (image, content) {
+    // Make sure the user is logged in before inserting image
+    if (! Meteor.userId()) {
+      throw new Meteor.Error("not-authorized");
+    }
+ 
+    Pics.insert({
+      image: image,
+      content: content,
+      createdAt: new Date(),
+      owner: Meteor.userId(),
+      username: Meteor.user().username
+    });
+  },
+  deletePic: function (picId) {
+    Pics.remove(picId);
+  }
+});
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
