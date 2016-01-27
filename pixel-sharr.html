@@ -4,51 +4,66 @@
 
 <body>
   <div class="container">
+  	<nav class="navbar navbar-default navbar-fixed-bottom">
+  		<div class="container">
+	    	{{#if currentUser}}
+	    	<div id="navtools" class="navbar-header">
+	    		<!-- <h2 class="home">Home</h2> -->
+					<!-- <h2 class="userpage">Profile</h2> -->
+					<div class="userpage">
+						<img id="icon" src="http://cdn.photoaffections.com/images/icon-profile.png">
+					</div>
+					<div class="home">
+						<img id="icon" src="http://www.wheatonbible.org/Content/10713/Icons/home-icon.png">
+					</div>
+
+		      <form class="new-pic">
+		        <input class="image" type="text" name="text" placeholder="Share an image url" />
+		        <input class="content" type="text" name="text" placeholder="Type to add description" />
+		       <button type="button" class="btn btn-default navbar-btn" id="submit">Submit</button>
+		      </form>
+
+		    </div>
+	      {{/if}}
+  		</div>
+		</nav>
     <header>
-      <h1>Latest pics</h1>
       {{> loginButtons}}
-			{{#if currentUser}}
-			<h2 class="userpage">profile</h2>
-      <form class="new-pic">
-        <input class="image" type="text" name="text" placeholder="Type to add new pictures" />
-        <input class="content" type="text" name="text" placeholder="Type to add description" />
-      </form>
-      <br>
-      <button id="submit">Submit</button>
-      {{/if}}
+
+      <h1 id="logo">Catstogram</h1>
     </header>
  
     <ul id="homepage">
       {{#each pics}}
-        {{> pic}}
-        
+        {{> pic}} 
       {{/each}}
     </ul>
-    <ul id="profile">
+    <br>
+    <br>
+    <br>
+<!--     <ul id="profile">
     	{{#if currentUser}}
-			
-
-					{{> user}}
-
-    	
-
+				{{> user}}
     	{{/if}}
+    </ul> -->
 
-    </ul>
   </div>
+
 </body>
  
 <template name="pic">
-	<li>
+	<li class="pictures" data-id="{{owner}}">
+		{{#if currentUser}}
 		<button class="delete">&times;</button>
 		<img src="{{image}}">
-		<span class="username"><strong>{{username}}</strong>: {{content}}</span>	
-	</li>
-</template>
-
-<template name="user">
-	<h4>{{user}}</h4>
-	<li>
-		<img src="{{image}}">
+		{{/if}}
+		<br>
+		<span class="username" data-id="{{owner}}"><strong>{{username}}</strong>: {{content}}</span>	
+		<br>
+		{{#if currentUser}}
+		<span data-id="{{_id}}" class="like-button">{{likes}} 
+			<img class="heart" src="https://pbs.twimg.com/tweet_video_thumb/CS5UGH3VEAAXKjC.png" alt="">
+		</span>
+		{{/if}}
 	</li>
 </template>
