@@ -119,6 +119,9 @@ Meteor.methods({
     Pics.remove(picId);
   },
   clickLike: function(picId) {
+    if (! Meteor.userId()) {
+      throw new Meteor.Error("not-authorized");
+    }
     Pics.update(picId, {
       $inc: {likes: +1}
     });
