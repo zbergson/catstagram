@@ -78,7 +78,6 @@ a:hover {
 
 #logo {
 	font-family: 'Kaushan Script', cursive;
-  font-size: 7em;
   margin: 0;
   margin-bottom: 0.4em;
   color: white;
@@ -131,6 +130,10 @@ ul {
 .new-pic {
 	display: inline-block;
 	margin-left: 3em;
+}
+
+h1 {
+	font-size: 7em;
 }
 
 
