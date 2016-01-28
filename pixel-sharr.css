@@ -21,6 +21,7 @@ body {
 .username {
 	font-family: 'Roboto', sans-serif;
 	font-size: 1.2em;
+	cursor: pointer;
 }
 
 
@@ -81,6 +82,7 @@ a:hover {
   margin-bottom: 0.4em;
   color: white;
   text-align: center;
+  cursor: pointer;
 }
 
 form {

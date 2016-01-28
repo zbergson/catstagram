@@ -30,6 +30,7 @@ if (Meteor.isClient) {
     },
     "click .userpage": function() {
       var pictures = $('.pictures');
+      $('.pictures').show();
       
       // when user clicks profile button, filter pictures so user only sees their photos
       for (i = 0; i < pictures.length; i++ ) {
@@ -45,6 +46,11 @@ if (Meteor.isClient) {
     },
     "click .home": function() {
       //when user clicks home button, remove profile filter so user can see all photos
+      $('.pictures').show();
+      $('header').css("background-image", "none");
+    },
+    "click #logo": function() {
+      //when user clicks logo, remove profile filter so user can see all photos
       $('.pictures').show();
       $('header').css("background-image", "none");
     },
@@ -64,13 +70,7 @@ if (Meteor.isClient) {
 
       }
     }
-    
-
   });
-
-
-
-
 
   Template.pic.events({
     //delete a picture, only if that picture is owned by current signed in user
@@ -88,15 +88,11 @@ if (Meteor.isClient) {
   });
 
 
-
   Accounts.ui.config({
     passwordSignupFields: "USERNAME_ONLY"
   });
 
 }
-
-
-
 
 
 Meteor.methods({
@@ -127,9 +123,3 @@ Meteor.methods({
     });
   }
 });
-
-// if (Meteor.isServer) {
-//   Meteor.startup(function () {
-//     // code to run on server at startup
-//   });
-// }
