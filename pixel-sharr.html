@@ -4,37 +4,51 @@
 
 <body>
   <div class="container">
-  	<nav class="navbar navbar-default navbar-fixed-bottom">
-  		<div class="container">
-	    	{{#if currentUser}}
-	    	<div id="navtools" class="navbar-header">
-					<div class="userpage">
-						<img id="icon" src="http://cdn.photoaffections.com/images/icon-profile.png">
-					</div>
-					<div class="home">
-						<img id="icon" src="http://www.wheatonbible.org/Content/10713/Icons/home-icon.png">
-					</div>
+  	<div class="row">
+  		<div class="col-xs-2 col-sm-2 col-md-2"></div>
+  		<div class="col-xs-8 col-sm-8 col-md-8">
+		  	<nav class="navbar navbar-default navbar-fixed-bottom">
+		  		<div class="container">
+			    	{{#if currentUser}}
+			    	<div id="navtools" class="navbar-header">
+							<div class="userpage">
+								<img id="icon" src="http://cdn.photoaffections.com/images/icon-profile.png">
+							</div>
+							<div class="home">
+								<img id="icon" src="http://www.wheatonbible.org/Content/10713/Icons/home-icon.png">
+							</div>
 
-		      <form class="new-pic">
-		        <input class="image" type="text" name="text" placeholder="Share an image url" />
-		        <input class="content" type="text" name="text" placeholder="Type to add description" />
-		       <button type="button" class="btn btn-default navbar-btn" id="submit">Submit</button>
-		      </form>
-
-		    </div>
-	      {{/if}}
-  		</div>
-		</nav>
+				      <form class="new-pic">
+				        <input class="image" type="text" name="text" placeholder="Share an image url" />
+				        <input class="content" type="text" name="text" placeholder="Type to add description" />
+				       <button type="button" class="btn btn-default navbar-btn" id="submit">Submit</button>
+				      </form>
+						
+				    </div>
+			      {{/if}}
+			      </div>
+			  </nav>
+			</div>
+			<div class="col-xs-2 col-sm-2 col-md-2"></div>
+		</div>
     <header>
-      {{> loginButtons}}
+    	<div class="row">
+    		<div class="col-xs-12 col-sm-12 col-md-12">
+	      	{{> loginButtons}}
 
-      <h1 id="logo">catstagram</h1>
+	      	<h1 id="logo">catstagram</h1>
+	    	</div>
+    	</div>
     </header>
  
     <ul id="homepage">
-      {{#each pics}}
-        {{> pic}} 
-      {{/each}}
+    	<div class="row">
+    		<div class="col-xs-12 col-sm-12 col-md-12">
+		      {{#each pics}}
+		        {{> pic}} 
+		      {{/each}}
+	    	</div>
+    	</div>
     </ul>
     <br>
     <br>
