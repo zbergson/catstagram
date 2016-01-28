@@ -31,24 +31,25 @@ if (Meteor.isClient) {
     "click .userpage": function() {
       var pictures = $('.pictures');
       
-      
+      // when user clicks profile button, filter pictures so user only sees their photos
       for (i = 0; i < pictures.length; i++ ) {
         var picturesLoop = pictures[i]
         
         var changePictures = $('.pictures')[i];
         if ($(picturesLoop).attr('data-id') !== Meteor.userId()) {
           $(changePictures).hide();
-          $('header').css("background-image", "url(http://videos.revision3.com/revision3/images/shows/lilbub/0052/lilbub--0052--the-return-of-bubs-real-brother-the-spooky-saga--marge.thumb.jpg)")
+          
         }
 
       }
     },
     "click .home": function() {
-      console.log('hi');
+      //when user clicks home button, remove profile filter so user can see all photos
       $('.pictures').show();
       $('header').css("background-image", "none");
     },
     "click .username": function() {
+      //when user clicks any users username, bring them to that users profile page by filtering pictures
       var pictures = $('.pictures');
       var currentOwner = this.owner;
       
@@ -72,6 +73,7 @@ if (Meteor.isClient) {
 
 
   Template.pic.events({
+    //delete a picture, only if that picture is owned by current signed in user
     "click .delete": function () {
       if (this.owner === Meteor.userId()) {
         Meteor.call("deletePic", this._id);
@@ -79,6 +81,7 @@ if (Meteor.isClient) {
       
     },
     "click .like-button": function() {
+      //call backend function that will increase likes on a post
       Meteor.call("clickLike", this._id);
     }
 
@@ -90,12 +93,6 @@ if (Meteor.isClient) {
     passwordSignupFields: "USERNAME_ONLY"
   });
 
-  // Template.user.helpers({
-  //   user: function(){
-  //     var currentUserId = Meteor.userId();
-  //     return Pics.find({owner: currentUserId });
-  //   }
-  // })
 }
 
 
@@ -128,8 +125,8 @@ Meteor.methods({
   }
 });
 
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
-}
+// if (Meteor.isServer) {
+//   Meteor.startup(function () {
+//     // code to run on server at startup
+//   });
+// }

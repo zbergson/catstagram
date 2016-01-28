@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+@import url(https://fonts.googleapis.com/css?family=Kaushan+Script);
+
 body {
   font-family: sans-serif;
   background-color: #f2f2f2;
@@ -15,15 +18,11 @@ body {
   font-size: 14px;
 }
 
+.username {
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.2em;
+}
 
-
-/*#logo {
-	color: white;
-	font: Helvetica;
-	font-size: 7em;
-	text-align: center;
-	display: inline-block;
-}*/
 
 .container {
   max-width: 800px;
@@ -37,6 +36,14 @@ body {
 	height: 4em;
 }
 
+#icon:hover {
+	cursor: pointer;
+}
+
+.like-button:hover {
+	cursor: pointer;
+}
+
 header {
   background: #125688;
   padding: 20px 15px 15px 15px;
@@ -47,15 +54,17 @@ header {
   display: block;
 }
 
+.heart {
+	width: 0.2em;
+	height: 0.2em;
+}
+
 .container img {
 	width: 80%;
 	height: auto;
 }
 
-.container img .heart {
-	width: 0.2em;
-	height: 0.2em;
-}
+
 
 a {
 	color: white;
@@ -66,6 +75,7 @@ a:hover {
 }
 
 #logo {
+	font-family: 'Kaushan Script', cursive;
   font-size: 7em;
   margin: 0;
   margin-bottom: 10px;
@@ -112,6 +122,7 @@ ul {
 	display: inline-block;
 }
 
+
 .delete {
   float: right;
   font-weight: bold;
@@ -122,7 +133,7 @@ ul {
 }
 
 #submit {
-	margin-top: -0.9em;
+	margin-top: -0.8em;
 }
 
 .new-pic {
@@ -136,6 +147,8 @@ li {
   list-style: none;
   padding: 15px;
   border-bottom: #eee solid 1px;
+  text-align: center;
+  
 }
 
 li .text {

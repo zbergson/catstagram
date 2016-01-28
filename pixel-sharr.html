@@ -1,5 +1,5 @@
 <head>
-  <title>pixel-sharr</title>
+  <title>CATSTAGRAM</title>
 </head>
 
 <body>
@@ -8,8 +8,6 @@
   		<div class="container">
 	    	{{#if currentUser}}
 	    	<div id="navtools" class="navbar-header">
-	    		<!-- <h2 class="home">Home</h2> -->
-					<!-- <h2 class="userpage">Profile</h2> -->
 					<div class="userpage">
 						<img id="icon" src="http://cdn.photoaffections.com/images/icon-profile.png">
 					</div>
@@ -30,7 +28,7 @@
     <header>
       {{> loginButtons}}
 
-      <h1 id="logo">Catstogram</h1>
+      <h1 id="logo">catstagram</h1>
     </header>
  
     <ul id="homepage">
@@ -41,11 +39,6 @@
     <br>
     <br>
     <br>
-<!--     <ul id="profile">
-    	{{#if currentUser}}
-				{{> user}}
-    	{{/if}}
-    </ul> -->
 
   </div>
 
@@ -55,14 +48,14 @@
 	<li class="pictures" data-id="{{owner}}">
 		{{#if currentUser}}
 		<button class="delete">&times;</button>
-		<img src="{{image}}">
 		{{/if}}
+		<img src="{{image}}">
 		<br>
 		<span class="username" data-id="{{owner}}"><strong>{{username}}</strong>: {{content}}</span>	
 		<br>
 		{{#if currentUser}}
-		<span data-id="{{_id}}" class="like-button">{{likes}} 
-			<img class="heart" src="https://pbs.twimg.com/tweet_video_thumb/CS5UGH3VEAAXKjC.png" alt="">
+		<span data-id="{{_id}}" class="like-button"> 
+					&#128525; {{likes}}
 		</span>
 		{{/if}}
 	</li>
