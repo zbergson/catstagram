@@ -4,4 +4,4 @@ To practice my Meteor skills, I made a rough replica of Instagram. It has full C
 
 More specifically, users can share posts, like posts that other users have posted (if they're signed in), and visit their individual profile pages. Also, any user can view another user's profile by clicking on their username.
 
-Check it out: http://catstagram.meteor.com/
+Check it out: https://catinsta.herokuapp.com/
