@@ -1,4 +1,4 @@
-This is project is meant to test out Meteor, the so-called Rails for JavaScript. 
+This is project is meant to test out Meteor, a JavaScript framework.
 
 To practice my Meteor skills, I made a rough replica of Instagram. It has full CRUD functionality where users can make an account, sign in and create, delete and update posts.
 
